@@ -4,7 +4,6 @@
 
 const prompt = require('prompt-sync')();
 
-
 let soma = 0;
 let termo = parseInt(prompt("Digite o termo a ser utilizado: "));
 let razao = parseInt(prompt("Digite a razão a ser utilizada: "));
