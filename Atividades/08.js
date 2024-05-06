@@ -15,7 +15,6 @@ let ganhos = 0.5;
 let pontosTotais;
 if(horas <= 10){
     pontosTotais = 2 * horas
-   
 }
 else if(horas <=20){
     pontosTotais = 5 * horas
