@@ -8,9 +8,9 @@ const prompt = require("prompt-sync")();
 let quantidadeCigarros = parseInt(prompt("Qual a quantidade de cigarros que você fuma por dia? "));
 let anosFumando = parseInt(prompt("À quantos anos você fuma? "));
 
-let perdaPorDia = quantidadeCigarros * 10; // 10 minutos perdidos por cigarro
-let perdaPorAno = perdaPorDia * 365;
-let perdaTotal = perdaPorAno * anosFumando;
+let diasFumando = anosFumando * 365;
+let totalCigarros = diasFumando * quantidadeCigarros;
+let total = totalCigarros * 10 / 1440;
 
-console.log("Você perderá aproximadamente " + perdaTotal + " dias de vida devido ao hábito de fumar.");
+console.log("Você perderá aproximadamente " + Math.round(total) + " dias de vida devido ao hábito de fumar.");
 
