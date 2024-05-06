@@ -20,7 +20,6 @@ do {
     pergunte = prompt("Você quer continuar? (Digite apenas 'S' ou 'N')").toUpperCase();
 } while (pergunte === 'S')
 
-
 for (let i = 0; i < numeros.length; i++) {
     soma += numeros[i];
     menorNumero = Math.min(...numeros)
@@ -29,7 +28,6 @@ for (let i = 0; i < numeros.length; i++) {
         par++;
     }
 }
-
 
 console.log("A soma dos elementos é:", soma);
 console.log("O menor número digitado foi: " + menorNumero);
