@@ -23,7 +23,7 @@ function main() {
             default:
                 console.log("operação invalida!")
         }
-        opcao = prompt("Deseja continuar ?(Digite apenas 'sim' ou 'nao') ").toLowerCase();
+        opcao = prompt("Deseja continuar ? (Digite apenas 'sim' ou 'nao') ").toLowerCase();
         if (opcao === 'nao') {
             condicaoExecucao = false;
         }
