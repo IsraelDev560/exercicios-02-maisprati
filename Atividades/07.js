@@ -11,7 +11,7 @@
 // - Acima de 200 Km percorridos: R$ 0,25 por Km
 
 const prompt = require("prompt-sync")();
-console.log("Digite um número ente 1 e 2 \n1 para 'Carro Popular'\n2 para 'Carro de Luxo'")
+console.log("Escolha a opção:\n1 - Carro Popular | 2 - Carro de Luxo")
 let carro = parseInt(prompt("Escolha qual o carro você utilizou: "));
 let dias = parseInt(prompt("Digite quantos dias você utlizou o carro? "));
 let kms = parseInt(prompt("Digite quantos KM'S você percorreu: "));
@@ -35,7 +35,7 @@ function calcularDeCarro(carro, dias, kms) {
             } else {
                 console.log("Você utilizou um Carro Popular\nVocê rodou por " + kms + "KM'S e custou: R$" + valorPopularMenor2);
                 console.log("Utilizando o carro durante: " + dias + " Dia/Dias custando: R$" + resultado);
-                console.log(`Total: R$ ${resultado + valorPopularMenor2}`)
+                console.log(`--- Preço do aluguel: R$ ${resultado + valorPopularMenor2}`)
             }
             break;
         case 2:
