@@ -19,7 +19,7 @@ let posicao = 1;
 while (condicao) {
     let matricula = parseInt(prompt("Digite o número da matricula do funcionario: "));
     let nome = prompt("Digite o nome do funcionario: ");
-    let salarioBruto = parseInt(prompt("Digite o salário do funcionario: "));
+    let salarioBruto = parseFloat(prompt("Digite o salário do funcionario: "));
     let pergunta = prompt('Deseja continuar? (sim/nao): ').toLowerCase();
    
         console.log("\n")
