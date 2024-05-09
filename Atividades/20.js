@@ -14,19 +14,25 @@ const funcionarios = [];
 
 const prompt = require('prompt-sync')();
 let condicao = true;
+let posicao = 1;
 
 while (condicao) {
-    let matricula = parseInt(prompt("Digite o número da sua matricula: "));
-    let nome = prompt("Digite o seu nome: ");
-    let salarioBruto = parseInt(prompt("Digite o seu salário: "));
+    let matricula = parseInt(prompt("Digite o número da matricula do funcionario: "));
+    let nome = prompt("Digite o nome do funcionario: ");
+    let salarioBruto = parseInt(prompt("Digite o salário do funcionario: "));
     let pergunta = prompt('Deseja continuar? (sim/nao): ').toLowerCase();
-    console.log("\n")
+   
+        console.log("\n")
     if (pergunta === 'nao') {
         condicao = false;
     }
     const INSS = 0.12;
     let salarioLiquido = salarioBruto * INSS;
     let resultado = salarioBruto - salarioLiquido;
-    funcionarios.push({ matricula: matricula, nome: nome, salarioBruto: salarioBruto, descontoINSS: salarioLiquido+"R$ equivalente a 12% de desconto do INSS", salarioLiquido: resultado });
+    funcionarios.forEach(element => {
+        posicao++;
+    });
+    funcionarios.push({ funcionario: posicao, matricula: matricula, nome: nome, salarioBruto: salarioBruto, descontoINSS: salarioLiquido + "R$ equivalente a 12% de desconto do INSS", salarioLiquido: resultado });
+
 }
 console.log(funcionarios)
