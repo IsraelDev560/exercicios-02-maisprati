@@ -11,10 +11,10 @@ let matriz = [
 ];
 let vetor = [];
 let contadorNegativo = 0;
-for(const element of matriz){
+for(let i = 0; i < matriz.length; i++){
     contadorNegativo = 0;
     for(let j = 0; j < matriz[0].length; j++){
-        if(element[j] < 0){
+        if(matriz[i][j] < 0){
             contadorNegativo++;
         }
     }
