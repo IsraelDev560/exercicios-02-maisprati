@@ -2,8 +2,7 @@
 // cada linha pelo elemento da diagonal principal daquela linha. Mostre a matriz após as
 // multiplicações.
 
-const matriz = [
-]
+const matriz = [];
 
 for (let i = 0; i < 50; i++) {
     matriz[i] = [];
@@ -12,7 +11,6 @@ for (let i = 0; i < 50; i++) {
     }
 }
 let diagonal = 0;
-
 // console.table(matriz);
 
 for (let i = 0; i < matriz.length; i++) {
@@ -20,7 +18,7 @@ for (let i = 0; i < matriz.length; i++) {
         if (i === j) {
             diagonal = matriz[i][j];
         }
-         matriz[i][j] = diagonal * matriz[i][j];
+        matriz[i][j] = diagonal * matriz[i][j];
     }
 }
 console.table(matriz);
