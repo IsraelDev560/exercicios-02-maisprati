@@ -33,8 +33,3 @@ for (let apostador of apostadores) {
         console.log("Parabéns, tu foi o GANHADOR");
     }
 }
-
-
-
-
-
