@@ -7,7 +7,7 @@
 let vetorGabarito = [];
 
 for (let j = 1; j <= 13; j++) {
-    vetorGabarito.push(Math.ceil(Math.random() * 13));
+    vetorGabarito.push(Math.ceil(Math.random() * 20));
 }
 let apostadores = [];
 for (let i = 1; i <= 100; i++) {
@@ -16,7 +16,7 @@ for (let i = 1; i <= 100; i++) {
         respostas: []
     };
     for (let k = 1; k <= 13; k++) {
-        apostador.respostas.push(Math.ceil(Math.random() * 10));
+        apostador.respostas.push(Math.ceil(Math.random() * 20));
     }
     apostadores.push(apostador)
 }
@@ -33,9 +33,6 @@ for (let apostador of apostadores) {
         console.log("Parabéns, tu foi o GANHADOR");
     }
 }
-
-// console.log(apostadores)
-// console.log(vetorGabarito)
 
 
 
