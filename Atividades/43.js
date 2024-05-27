@@ -4,7 +4,7 @@
 
 function createObjt(obj1, obj2) {
     let newObj = obj1;
-    for(valor in obj2){
+    for(let valor in obj2){
         newObj[valor] = obj2[valor];
     }
     return newObj;
