@@ -2,7 +2,7 @@
 // fornecida a cada uma das propriedades do objeto, retornando um novo objeto com os
 // resultados.
 function transforme(objeto) {
-   let transformado = {}
+   let transformado = {};
    objeto.forEach(atributo => {
          transformado[atributo.nome] = atributo.nome.toUpperCase();
    });  
