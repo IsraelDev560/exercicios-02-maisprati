@@ -13,4 +13,4 @@ let objeto = [
    {nome: "José", idade: 40},
    {nome: "Paulo", idade: 25}
 ];
-console.log(transforme(objeto))
+console.log(transforme(objeto));
