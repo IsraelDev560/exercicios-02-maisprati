@@ -26,4 +26,4 @@ let transacoes = [
     { id: 5, valor: 235, data: "22/04/2024", categoria: "Deposito" },
     { id: 6, valor: 50, data: "06/04/2024", categoria: "Ted" }
 ]
-console.log(retorno(transacoes))
+console.log(retorno(transacoes));
