@@ -18,7 +18,7 @@ A descrição para cada exercício será encontrada comentada no código-fonte d
 
 * Caso o retorno no terminal seja "added 3 packages", está instalado esse pacote.
 
-* Para executar os exericios, baixe os arquivos na sua maquina, execute o comando abaixo no seu terminal, na pasta que deseja.
+* Para executar os exericios, baixe os arquivos na sua maquina, execute o comando abaixo no seu terminal, e na pasta que deseja.
 
 * *git clone https://github.com/IsraelDev560/exercicios-02-maisprati.git*
 
