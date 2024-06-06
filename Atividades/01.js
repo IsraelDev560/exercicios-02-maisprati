@@ -5,7 +5,6 @@ function funcao01() {
     // vida um fumante perderá e exiba o total em dias.
 
     const prompt = require("prompt-sync")();
-
     let quantidadeCigarros = parseInt(prompt("Qual a quantidade de cigarros que você fuma por dia? "));
     let anosFumando = parseInt(prompt("À quantos anos você fuma? "));
 
