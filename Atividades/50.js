@@ -42,7 +42,6 @@ let ultimoIdReserva = 0;
 function menu() {
     console.log(`---- Menu ---- \n1 - Adicionar Hotel\n2 - Buscar Hoteis por cidade \n3 - Fazer Reservas \n4 - Cancelar Reservas`);
 }
-
 function adicionarHotel() {
     let condicao = true;
     do {
