@@ -1,5 +1,5 @@
 /*
- Para executar estas funções, rode o programa e seleciona entre as opções de 1 a 50.
+ Para executar estas funções, rode o programa e selecione entre as opções de 1 a 50.
  Para sair da funcão digite 'nao', e o programa vai parar.
 */
 const prompt = require('prompt-sync')();
@@ -210,7 +210,7 @@ function main() {
                 modulo49.funcao49();
                 break;
             case 50:
-                const modulo50 = require('./Atividade/50');
+                const modulo50 = require('./Atividades/50');
                 modulo50.funcao50();
                 break;
             default:
