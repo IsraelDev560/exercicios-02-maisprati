@@ -40,7 +40,7 @@ let ultimoIdHotel = 0;
 let ultimoIdReserva = 0;
 
 function menu() {
-    console.log(`---- Menu ---- \n1 - Adicionar Hotel\n2 - Buscar Hoteis por cidade \n3 - Fazer Reservas \n4 - Cancelar Reservas`);
+    console.log(`---- Menu ---- \n1 - Adicionar Hotel\n2 - Buscar Hoteis por cidade \n3 - Fazer Reservas \n4 - Cancelar Reservas\n5 - Listar Reservas`);
 }
 function adicionarHotel() {
     let condicao = true;
@@ -66,33 +66,130 @@ function buscarHoteisPorCidade() {
     for (let city of hoteis) {
         if (pergCidade === city.cidade.toUpperCase()) {
             result.push(city);
-        } 
+        }
     }
     if (result.length === 0) {
-        console.log("Cidade não encontrada.")
+        console.log("Cidade não encontrada.");
     }
     console.log(result);
 }
 
+function buscarHotelPorId(id) {
+    for (let hotel of hoteis) {
+        if (hotel.id === id) {
+            return hotel;
+        }
+    }
+    return false;
+}
+
+function temQuartosLivres(id) {
+    let hotel = buscarHotelPorId(id);
+    if (hotel === false) {
+        return "Hotel não existe";
+    }
+    if (hotel.quartos_disponiveis > 0) {
+        return true;
+    }
+    return false;
+}
+
+function ocuparQuarto(id) {
+    let hotel = buscarHotelPorId(id);
+    if (hotel === false) {
+        return "hotel não existe";
+    }
+    if (hotel.quartos_disponiveis > 0) {
+        hotel.quartos_disponiveis--;
+        return "Quarto ocupado";
+    }
+    return "não tem quarto disponivel";
+}
+
+function criarReserva(idHotel, nomeCliente) {
+    if (!buscarHotelPorId(idHotel)) {
+        return "Hotel não existe";
+    };
+    if (!temQuartosLivres(idHotel)) {
+        return "hotel não tem quarto disponivel";
+    };
+    let id = ++ultimoIdReserva;
+    function nomeDoHotel() {
+        for (let hotel of hoteis) {
+            if (idHotel === hotel.id) {
+                return hotel.nome;
+            }
+        }
+    }
+    reservas.push({
+        idReserva: id,
+        idHotel: idHotel,
+        nomeHotel: nomeDoHotel(),
+        nomeCliente: nomeCliente
+    });
+    ocuparQuarto(idHotel);
+    return "Reserva Feita";
+}
+
 function fazerReservas() {
-    let condicao = true;
-    do {
-        let pergId = parseInt(prompt("Digite o id do hotel: "));
-        let pergNomeCliente = prompt("Digite o nome do cliente: ");
-        hoteis.find(pergId)
-        if (hoteis.quartos_disponiveis > 0) {
-            let id = ++ultimoIdReserva;
-            quartos_disponiveis--;
-            let reserva = { IdReserva: id, id: pergId, nome: pergNomeCliente }
-            reservas.push(reserva);
+    let pergId = parseInt(prompt("Digite o id do hotel: "));
+    let pergNomeCliente = prompt("Digite o nome do cliente: ");
+    let encontrouHotel = buscarHotelPorId(pergId);
+
+    if (encontrouHotel) {
+        if (temQuartosLivres(pergId) === true) {
+            criarReserva(pergId, pergNomeCliente);
+            console.log(`Reserva Feita com sucesso! no nome de: ${pergNomeCliente}`);
         } else {
-            console.log("Erro")
+            console.log("Não tem quartos disponiveis");
         }
-        let pergunta = prompt("Deseja continuar? ").toLowerCase();
-        if (pergunta === 'nao' || pergunta === 'não') {
-            condicao = false;
+    } else {
+        console.log("Erro: Hotel não encontrado");
+    }
+}
+
+function cancelarReserva(idHotel, nomeCliente){
+    if (!buscarHotelPorId(idHotel)) {
+        return "Hotel não existe";
+    };
+    if (!temQuartosLivres(idHotel)) {
+        return "hotel não tem quarto disponivel";
+    };
+    function nomeDoHotel() {
+        for (let hotel of hoteis) {
+            if (idHotel === hotel.id) {
+                return hotel.nome;
+            }
         }
-    } while (condicao)
+    }
+    reservas.pop({
+        idHotel: idHotel,
+        nomeHotel: nomeDoHotel(),
+        nomeCliente: nomeCliente
+    });
+}
+
+function deletarReserva() {
+    let pergId = parseInt(prompt("Digite o id do Hotel que deseja cancelar: "));
+    let pergNome = prompt("Digite o seu nome: ");
+    let encontrouHotel = buscarHotelPorId(pergId);
+
+    if (encontrouHotel) {
+        cancelarReserva(pergId, pergNome)
+        encontrouHotel.quartos_disponiveis++;
+        console.log("Reserva Cancelada!")
+    } else {
+        console.log("Não Foi possivel fazer o cancelamento");
+    }
+}
+
+
+function listarReservas() {
+    if (reservas[0] == null) {
+        console.log("Não há reservas no momento.")
+    } else {
+        console.log(reservas);
+    }
 }
 
 function main() {
@@ -111,8 +208,11 @@ function main() {
                 fazerReservas();
                 break;
             case 4:
-
+                deletarReserva();
                 break;
+            case 5:
+                listarReservas();
+                break
             default:
                 console.log("Opção não encontrada.");
         }
