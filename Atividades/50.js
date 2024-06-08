@@ -30,12 +30,7 @@ function funcao50() {
     // avaliações dentro do objeto do hotel.
 
     const prompt = require("prompt-sync")();
-    let hoteis = [
-        { id: 1, nome: "Ibis", cidade: "FSA", quartos_totais: 5, quartos_disponiveis: 2 },
-        { id: 2, nome: "CAJU DE OURO", cidade: "SSA", quartos_totais: 88, quartos_disponiveis: 65 },
-        { id: 3, nome: "PALACE", cidade: "FSA", quartos_totais: 50, quartos_disponiveis: 20 },
-        { id: 4, nome: "ATMOSFERA", cidade: "SSA", quartos_totais: 15, quartos_disponiveis: 8 },
-    ];
+    let hoteis = [];
     let reservas = [];
     let ultimoIdHotel = 0;
     let ultimoIdReserva = 0;
